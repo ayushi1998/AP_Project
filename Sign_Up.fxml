@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.4498327759197324" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.57" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<SplitPane dividerPositions="0.4498327759197324" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.57" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.signup_controller">
    <items>
       <Pane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -31,7 +31,7 @@
                </cursor>
             </ImageView>
             <Label layoutX="32.0" layoutY="329.0" prefHeight="41.0" prefWidth="175.0" text="Already a member?" textAlignment="CENTER" textFill="WHITE" />
-            <Button layoutX="161.0" layoutY="338.0" mnemonicParsing="false" text="Login">
+            <Button fx:id="login" layoutX="161.0" layoutY="338.0" mnemonicParsing="false" onAction="#login_click" text="Login">
                <font>
                   <Font name="Cochin" size="13.0" />
                </font></Button>

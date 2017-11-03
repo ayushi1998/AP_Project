@@ -16,7 +16,7 @@ public class Main extends Application {
 		try {
 			stage=primaryStage;
 			//BorderPane root = new BorderPane();
-			Parent root= FXMLLoader.load(getClass().getResource("User_Student.fxml"));
+			Parent root= FXMLLoader.load(getClass().getResource("Sign_Up.fxml"));
 			Scene scene = new Scene(root,600,400);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);

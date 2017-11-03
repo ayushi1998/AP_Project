@@ -1,12 +1,14 @@
 package classes;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 	String username;
 	String email;
 	String password;
 	String usertype;
 	
-	User(String name, String email, String password, String user)
+	public User(String name, String email, String password, String user)
 	{
 		username=name;
 		this.email=email;

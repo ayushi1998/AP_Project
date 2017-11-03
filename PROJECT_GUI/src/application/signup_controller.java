@@ -1,17 +1,19 @@
 package application;
-import classes.*;
 
-import java.awt.TextField;
-import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
+import classes.User;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -19,14 +21,21 @@ public class signup_controller
 {
 	@FXML
 	Button login;
+	@FXML
+	Button submit;
 	
 	@FXML
 	TextField username;
+	@FXML
+	TextField email;
+	
+	@FXML
+	PasswordField password;
 	
 	@FXML 
 	ComboBox combo;
 	
-	
+	ArrayList<User> users;
 	
 
 	public void login_click(ActionEvent event) throws Exception
@@ -48,7 +57,21 @@ public class signup_controller
 		 * 3. Serializing
 		 */
 		//ComboBox 
-		//User u=new User(username.getText(), email.getText(), password.getText(), );
+		
+		User u=new User(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
+		
+		ObjectOutputStream UsersList	=	null;	
+		try	
+		{	
+			UsersList=new ObjectOutputStream(new FileOutputStream("Users.txt"));	
+			UsersList.writeObject(u);	
+					
+		}	
+		finally	
+		{	
+			UsersList.close();	
+		}	
+	
 		
 		
 		

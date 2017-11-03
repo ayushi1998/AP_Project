@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Cancel_room_controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b6c9cd" height="400.0" layoutX="2.0" layoutY="7.0" stroke="#0a4d4c" strokeType="INSIDE" width="609.0" />
       <Label alignment="CENTER" layoutX="190.0" layoutY="14.0" prefHeight="51.0" prefWidth="201.0" text="CANCEL BOOKING" textFill="#00415b">
@@ -34,7 +34,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ComboBox editable="true" layoutX="336.0" layoutY="115.0" prefHeight="25.0" prefWidth="170.0" promptText="Weekday" />
+      <ComboBox fx:id="weekday" editable="true" layoutX="336.0" layoutY="115.0" prefHeight="25.0" prefWidth="170.0" promptText="Weekday" />
       <Label layoutX="120.0" layoutY="161.0" text="Enter Time Slot">
          <font>
             <Font size="14.0" />
@@ -47,6 +47,6 @@
       </Label>
       <Button layoutX="451.0" layoutY="357.0" mnemonicParsing="false" text="Cancel" />
       <ComboBox editable="true" layoutX="336.0" layoutY="159.0" prefHeight="25.0" prefWidth="170.0" promptText="Time-Slot" />
-      <ComboBox editable="true" layoutX="336.0" layoutY="205.0" prefHeight="25.0" prefWidth="170.0" promptText="Room-Number" />
+      <ComboBox fx:id="classroom" editable="true" layoutX="336.0" layoutY="205.0" prefHeight="25.0" prefWidth="170.0" promptText="Room-Number" />
    </children>
 </Pane>

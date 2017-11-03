@@ -61,7 +61,7 @@
                         <Font name="Geneva" size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="27.0" prefWidth="110.0" />
+                  <TextField prefHeight="28.0" prefWidth="110.0" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -87,39 +87,18 @@
                         <Font name="Geneva" size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField prefHeight="28.0" prefWidth="117.0" />
+                  <PasswordField prefHeight="30.0" prefWidth="115.0" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </HBox>
-            <VBox layoutX="163.0" layoutY="232.0" prefHeight="131.0" prefWidth="129.0" spacing="10.0">
-               <children>
-                  <RadioButton mnemonicParsing="false" text="Faculty" textFill="#0a0909">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Student" textFill="#171515">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </RadioButton>
-                  <RadioButton mnemonicParsing="false" text="Admin">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </RadioButton>
-               </children>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </VBox>
             <Label layoutX="55.0" layoutY="242.0" prefHeight="24.0" prefWidth="94.0" text="User Type">
                <font>
                   <Font name="Geneva" size="18.0" />
                </font>
             </Label>
+            <ComboBox fx:id="combo" layoutX="177.0" layoutY="240.0" prefHeight="28.0" prefWidth="110.0" />
          </children>
       </Pane>
    </items>

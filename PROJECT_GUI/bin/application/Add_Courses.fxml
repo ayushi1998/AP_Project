@@ -45,5 +45,6 @@
       <Ellipse fill="#768594" layoutX="84.0" layoutY="98.0" radiusX="7.0" radiusY="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Ellipse fill="#768594" layoutX="86.0" layoutY="184.0" radiusX="7.0" radiusY="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a1d22" height="14.0" layoutY="389.0" stroke="#0a4d4c" strokeType="INSIDE" width="600.0" />
+      <Button fx:id="back" layoutX="524.0" layoutY="360.0" mnemonicParsing="false" onAction="#back_click" text="Back" />
    </children>
 </Pane>

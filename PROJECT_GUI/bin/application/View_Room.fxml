@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.View_room_controller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b6c9cd" height="400.0" layoutX="2.0" layoutY="7.0" stroke="#0a4d4c" strokeType="INSIDE" width="609.0" />
       <VBox layoutX="120.0" layoutY="134.0" prefHeight="243.0" prefWidth="365.0" spacing="10.0">
@@ -20,7 +20,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox editable="true" prefHeight="34.0" prefWidth="170.0" promptText="Weekday" />
+                  <ComboBox fx:id="weekday" editable="true" prefHeight="34.0" prefWidth="170.0" promptText="Weekday" />
                </children>
             </HBox>
             <HBox prefHeight="36.0" prefWidth="364.0" spacing="100.0">
@@ -30,7 +30,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox editable="true" prefHeight="34.0" prefWidth="170.0" promptText="Classroom Code" />
+                  <ComboBox fx:id="classroom" editable="true" prefHeight="34.0" prefWidth="170.0" promptText="Classroom Code" />
                </children>
             </HBox>
             <HBox prefHeight="55.0" prefWidth="365.0" spacing="100.0">

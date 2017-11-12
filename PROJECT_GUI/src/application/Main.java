@@ -1,5 +1,12 @@
 package application;
 	
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import classes.Room;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -8,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
-public class Main extends Application {
+public class Main  extends Application implements Serializable  {
 	
 	static Stage stage;
 	@Override
@@ -22,11 +29,7 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-			//signup_controller sc=new signup_controller(primaryStage);
-			
-			
-			
-			
+
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -35,9 +38,26 @@ public class Main extends Application {
 	}
 	
 	
+	static HashMap<String,ArrayList<Room>> hm2=new HashMap<String,ArrayList<Room>>();
 	
-	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
+		
+		 ObjectOutputStream UsersList=null;	
+		 Room r=new Room("C01",12,00,14,00,55);
+		 ArrayList<Room> ar=new ArrayList<Room>();
+		 ar.add(r);
+		 hm2.put("MONDAY", ar);
+			
+			try	
+			{	
+				UsersList=new ObjectOutputStream(new FileOutputStream("WeekdayRooms.txt"));	
+				UsersList.writeObject(hm2);			
+			}	
+			finally	
+			{	
+				UsersList.close();	
+			}	
+			
 		launch(args);
 	}
 }

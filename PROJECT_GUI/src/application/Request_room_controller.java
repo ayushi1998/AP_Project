@@ -1,5 +1,18 @@
 package application;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import classes.Request;
+import classes.Room;
+import classes.Student;
+import classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,24 +23,98 @@ import javafx.stage.Stage;
 
 public class Request_room_controller {
 	@FXML 
-	ComboBox weekday;
+	DatePicker date;
 	
 	@FXML 
 	ComboBox classroom;
 	@FXML 
 	TextField purpose;
+	@FXML
+	TextField f_h;
+	@FXML
+	TextField f_m;
+	@FXML
+	TextField t_h;
+	@FXML
+	TextField t_m;
+	
 	@FXML 
 	Button back;
+	@FXML 
+	Button submit;
+	
+	Login_controller lc=new Login_controller();
+	User v;
+	ArrayList<Request> hm=new ArrayList<Request>();
 	
 	@FXML
 	public  void initialize()
 	{
-		weekday.getItems().addAll("Monday", "Tuesday", "Wednesday");
-		classroom.getItems().addAll("C01", "C02", "C03");
-		
+		//weekday.getItems().addAll("Monday", "Tuesday", "Wednesday","Thursday","Friday");
+		classroom.getItems().addAll("C01", "C02", "C03","C11","C12","C13","C21","C22","C23");
+		v=lc.getUser();
 		//combo.setEditable(true);
 	    //combo.setPromptText("Enter");
 	  
+	}
+	
+	public ArrayList<Request> deserializefile() throws ClassNotFoundException, IOException{
+		 ObjectInputStream fileread=null;
+		// HashMap<String,ArrayList<Room>> hm=null;
+		try{
+			fileread=new ObjectInputStream(new FileInputStream("RequestDatabase.txt"));
+			hm=(ArrayList) fileread.readObject();
+			
+			System.out.println("function");
+		}
+		finally{
+			fileread.close();
+		}
+		return hm;
+		
+	}
+	
+	public void submit_click(ActionEvent event) throws Exception
+	{
+		LocalDate l=date.getValue();
+		String d=l.toString();
+		//System.out .println(d);
+		//String wd=l.getDayOfWeek().name();
+		String cl=classroom.getValue().toString();
+		int fh=Integer.parseInt(f_h.getText());
+		int fm=Integer.parseInt(f_m.getText());
+		int th=Integer.parseInt(t_h.getText());
+		int tm=Integer.parseInt(t_m.getText());
+		String p=purpose.getText();
+		
+		
+		
+		try
+		{
+			
+		 hm=deserializefile(); 
+		 //System.out.println(hm.get("MONDAY").get(0).getTime()+"The stored time of the class in file");
+		}
+		catch (NullPointerException e)
+		{
+			hm=new ArrayList<Request>();
+		}
+		
+		Request re=new Request(d,fh,fm,th,tm,p,cl,(Student)v);
+		hm.add(re);
+		
+		ObjectOutputStream UsersList=null;	
+		
+		try	
+		{	
+			UsersList=new ObjectOutputStream(new FileOutputStream("RequestDatabase.txt"));	
+			UsersList.writeObject(hm);			
+		}	
+		finally	
+		{	
+			UsersList.close();	
+		}	
+		
 	}
 	
 	public void back_click(ActionEvent event) throws Exception
@@ -39,7 +126,12 @@ public class Request_room_controller {
 		//pane.getChildren().setAll(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-		System.out.println("hello");
+		
+		System.out.println(v.getUsertype());
 	}
+	
+	
+	
+	
 	
 }

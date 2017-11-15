@@ -117,6 +117,7 @@ public class View_room_controller
 		int fm=Integer.parseInt(f_m.getText());
 		int th=Integer.parseInt(t_h.getText());
 		int tm=Integer.parseInt(t_m.getText());
+		String user=v.getUsertype();
 		int c=0;
 		int flag=0;
 		//checks clash with that weekday courses 
@@ -130,7 +131,7 @@ public class View_room_controller
 		{
 			hm=new HashMap<String,ArrayList<Room>>();
 		}
-		Room r=new Room(cl,fh,fm,th,tm,c);
+		Room r=new Room(cl,fh,fm,th,tm,c,user);
 		ArrayList<Room> ar=hm.get(wd);
 		
 		if(ar==null)
@@ -161,7 +162,7 @@ public class View_room_controller
 			hm2=new HashMap<String,ArrayList<Room>>();
 		}
 		
-		Room r2=new Room(cl,fh,fm,th,tm,c);
+		Room r2=new Room(cl,fh,fm,th,tm,c,user);
 		ArrayList<Room> ar2=hm2.get(d);
 		
 		if(ar2==null)

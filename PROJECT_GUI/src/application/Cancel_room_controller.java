@@ -97,7 +97,10 @@ public class Cancel_room_controller {
 		int fm=Integer.parseInt(f_m.getText());
 		int th=Integer.parseInt(t_h.getText());
 		int tm=Integer.parseInt(t_m.getText());
+		
 		int c=0;
+		String user=u.getUsertype();
+		
 		int flag=0;
 		try
 		{
@@ -110,16 +113,24 @@ public class Cancel_room_controller {
 			hm=new HashMap<String,ArrayList<Room>>();
 		}
 		
-		Room r=new Room(cl,fh,fm,th,tm,c);
+		Room r=new Room(cl,fh,fm,th,tm,c,user);
 		ArrayList<Room> ar=hm.get(d);
 		for(Room ro: ar)
 		{
-			if(ro.checkSlot(r)==1)
-			{
-				ar.remove(ro);
-				status.setText("Cancelled");
-				break;
-			}
+           if(ro.getUsertype().equals(r.getUsertype()))
+           {
+        	       if(ro.checkSlot(r)==1)
+       			   {
+       				ar.remove(ro);
+       				status.setText("Cancelled");
+       				break;
+       			    }
+        	   
+           }
+           else{
+        	   status.setText("Booked by other User");
+           }
+			
 			
 		}
 			

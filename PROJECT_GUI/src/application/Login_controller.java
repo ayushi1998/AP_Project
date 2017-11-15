@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import classes.Faculty;
+import classes.Student;
 import classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,10 +58,14 @@ public class Login_controller {
 		}
 		return hm;
 	}
-	public User getUser()
+	public Student getStudent()
 	{
 		System.out.println("called"+ u.getUsertype());
-		
+		return (Student)u;
+	}
+	
+	public User getUser()
+	{
 		return u;
 	}
 	public void submit_click(ActionEvent event) throws Exception
@@ -95,6 +101,7 @@ public class Login_controller {
 	    }
 	    else if(u.getUsertype().equals("Student"))
 	    {
+	    	
 	    	Stage primaryStage=(Stage) submit.getScene().getWindow()  ;
 			Pane root= FXMLLoader.load(getClass().getResource("User_Student.fxml"));
 			Scene scene = new Scene(root,600,400);

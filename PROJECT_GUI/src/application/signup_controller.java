@@ -20,6 +20,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import classes.Admin;
+import classes.Faculty;
+import classes.Student;
 import classes.User;
 
 public class signup_controller 
@@ -44,6 +47,9 @@ public class signup_controller
 	
 	 HashMap<String,User> usermap=new HashMap<String,User>();
 	 public static User u;
+	 public static Student s;
+	 public static Faculty f;
+	 public static Admin a;
 	
 	public HashMap<String,User> deserializefile() throws ClassNotFoundException, IOException{
 		 ObjectInputStream fileread=null;
@@ -97,13 +103,26 @@ public class signup_controller
 		}
 		finally
 		{
-		u=new User(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
 		
+		if(combo.getValue().toString().equals("Student"))	
+		{	
+			s=new Student(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
+			usermap.put(email.getText(), s);
+		}
+		else if(combo.getValue().toString().equals("Faculty"))	
+		{	
+			f=new Faculty(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
+			usermap.put(email.getText(), f);
+		}
+		else {
+			a=new Admin(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
+			usermap.put(email.getText(), a);
+		}
 		//Validate Email
 		
 		System.out.println(email.getText());
 		
-		usermap.put(email.getText(), u);
+		//usermap.put(email.getText(), u);
 	
 		System.out.println(usermap.size());
 		}

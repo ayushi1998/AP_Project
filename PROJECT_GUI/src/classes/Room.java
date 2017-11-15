@@ -17,7 +17,10 @@ public class Room implements Serializable{
 	int cap;
 	int start;
 	int end;
-	public Room(String a,int c,int d,int e,int f,int g)
+	private String usertype;
+	
+	
+	public Room(String a,int c,int d,int e,int f,int g, String user)
 	{
 		room=a;
 		fh=c;
@@ -25,6 +28,7 @@ public class Room implements Serializable{
 		th=e;
 		tm=f;
 		cap=g;
+		setUsertype(user);
 		start=fh*60+fm;
 		end=th*60+tm;
 	}
@@ -68,6 +72,14 @@ public class Room implements Serializable{
 		}
 		else 
 			return 0;
+	}
+
+	public String getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
 	}
 
 }

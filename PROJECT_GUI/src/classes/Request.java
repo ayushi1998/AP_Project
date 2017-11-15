@@ -1,29 +1,87 @@
 package classes;
 
-public class Request {
+import java.io.Serializable;
+
+public class Request implements Serializable {
 	
-	String room;
+	private String room;
 	String purpose;  // For the student to specify a purpose to RequestRoom.
-	int fh;
-	int fm;
-	int th;
-	int tm;
-	String date;
+	private int fh;
+	private int fm;
+	private int th;
+	private int tm;
+	private String date;
 	int cap;
 	int start;
 	int end;
-	Student stu;
+	private Student stu;
 	
 	public Request(String a,int b,int c,int d,int e,String f, String g, Student s)
 	{
-		date=a;
-		fh=b;
-		fm=c;
-		th=d;
-		tm=e;
+		setDate(a);
+		setFh(b);
+		setFm(c);
+		setTh(d);
+		setTm(e);
 		purpose=f;
-		room=g;
-		stu=s;
+		setRoom(g);
+		setStudent(s);
+	}
+
+	public Student getStudent() {
+		return stu;
+	}
+
+	public void setStudent(Student stu) {
+		this.stu = stu;
+	}
+
+	public String getRoom() {
+		return room;
+	}
+
+	public void setRoom(String room) {
+		this.room = room;
+	}
+
+	public int getFh() {
+		return fh;
+	}
+
+	public void setFh(int fh) {
+		this.fh = fh;
+	}
+
+	public int getFm() {
+		return fm;
+	}
+
+	public void setFm(int fm) {
+		this.fm = fm;
+	}
+
+	public int getTh() {
+		return th;
+	}
+
+	public void setTh(int th) {
+		this.th = th;
+	}
+
+	public int getTm() {
+		return tm;
+	}
+
+	public void setTm(int tm) {
+		this.tm = tm;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 }

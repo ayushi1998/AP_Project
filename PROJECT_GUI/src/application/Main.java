@@ -43,7 +43,7 @@ public class Main  extends Application implements Serializable  {
 	public static void main(String[] args) throws Exception{
 		
 		 ObjectOutputStream UsersList=null;	
-		 Room r=new Room("C01",12,00,14,00,55);
+		 Room r=new Room("C01",12,00,14,00,55," ");
 		 ArrayList<Room> ar=new ArrayList<Room>();
 		 ar.add(r);
 		 hm2.put("MONDAY", ar);

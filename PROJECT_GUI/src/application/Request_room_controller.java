@@ -44,15 +44,30 @@ public class Request_room_controller {
 	Button submit;
 	
 	Login_controller lc=new Login_controller();
+	
 	User v;
-	ArrayList<Request> hm=new ArrayList<Request>();
+	Student s;
+	ArrayList<Request> arr=new ArrayList<Request>();
 	
 	@FXML
 	public  void initialize()
 	{
 		//weekday.getItems().addAll("Monday", "Tuesday", "Wednesday","Thursday","Friday");
 		classroom.getItems().addAll("C01", "C02", "C03","C11","C12","C13","C21","C22","C23");
+		//System.out.println(lc.getUser().getClass());
+		if(lc.getUser() instanceof Student)
+		{
+			System.out.println("hi");
+			s=(Student) lc.getUser();
+		}
+		/* 
 		v=lc.getUser();
+		String name=v.getUsername();
+		String p=v.getPassword();
+		String email=v.getEmail();
+		
+		s=new Student(name,email,p,v.getUsertype());
+		  */  
 		//combo.setEditable(true);
 	    //combo.setPromptText("Enter");
 	  
@@ -63,14 +78,14 @@ public class Request_room_controller {
 		// HashMap<String,ArrayList<Room>> hm=null;
 		try{
 			fileread=new ObjectInputStream(new FileInputStream("RequestDatabase.txt"));
-			hm=(ArrayList) fileread.readObject();
+			arr=(ArrayList) fileread.readObject();
 			
 			System.out.println("function");
 		}
 		finally{
 			fileread.close();
 		}
-		return hm;
+		return arr;
 		
 	}
 	
@@ -92,23 +107,24 @@ public class Request_room_controller {
 		try
 		{
 			
-		 hm=deserializefile(); 
+		 arr=deserializefile(); 
 		 //System.out.println(hm.get("MONDAY").get(0).getTime()+"The stored time of the class in file");
 		}
 		catch (NullPointerException e)
 		{
-			hm=new ArrayList<Request>();
+			arr=new ArrayList<Request>();
 		}
 		
-		Request re=new Request(d,fh,fm,th,tm,p,cl,(Student)v);
-		hm.add(re);
-		
+		Request re=new Request(d,fh,fm,th,tm,p,cl,s);
+		System.out.println(s+" "+"Request se"+re.getStudent());
+		arr.add(re);
+		//v.disp();
 		ObjectOutputStream UsersList=null;	
 		
 		try	
 		{	
 			UsersList=new ObjectOutputStream(new FileOutputStream("RequestDatabase.txt"));	
-			UsersList.writeObject(hm);			
+			UsersList.writeObject(arr);			
 		}	
 		finally	
 		{	
@@ -127,7 +143,7 @@ public class Request_room_controller {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
-		System.out.println(v.getUsertype());
+		//System.out.println(v.getUsertype());
 	}
 	
 	

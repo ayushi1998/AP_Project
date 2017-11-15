@@ -111,6 +111,8 @@ public class Book_class_controller {
 		int th=Integer.parseInt(t_h.getText());
 		int tm=Integer.parseInt(t_m.getText());
 		int c=Integer.parseInt(cap.getText());
+		String user=u.getUsertype();
+		
 		int flag=0;
 		//checks clash with that weekday courses 
 		try
@@ -123,7 +125,7 @@ public class Book_class_controller {
 		{
 			hm=new HashMap<String,ArrayList<Room>>();
 		}
-		Room r=new Room(cl,fh,fm,th,tm,c);
+		Room r=new Room(cl,fh,fm,th,tm,c,user);
 		ArrayList<Room> ar=hm.get(wd);
 		
 		if(ar==null)
@@ -131,15 +133,17 @@ public class Book_class_controller {
 		
 		for(Room ro: ar)
 		{
-			System.out.println(ro.checkClash(r));
+			// Check faculty
 			
-			if(ro.checkClash(r)==1)
-			{
+			 if(ro.checkClash(r)==1)
+			 {
 				flag=1;
 				System.out.println("weekday clash");
 				status.setText(ro.getTime());
 				break;
-			}
+			  }
+			
+			
 			
 		}
 		//check clash with explicit rooms booked on that date
@@ -154,25 +158,28 @@ public class Book_class_controller {
 			hm2=new HashMap<String,ArrayList<Room>>();
 		}
 		
-		Room r2=new Room(cl,fh,fm,th,tm,c);
+		Room r2=new Room(cl,fh,fm,th,tm,c,user);
 		ArrayList<Room> ar2=hm2.get(d);
 		
 		if(ar2==null)
 			ar2=new ArrayList<Room>();
 		
 		for(Room ro: ar2)
-		{
+	   {
+			
 			System.out.println(ro.checkClash(r)==1);
-			if(ro.checkClash(r)==1)
-			{
+	        if(ro.checkClash(r)==1)
+	        {
 				
 				flag=1;
-				System.out.println("room clash");
+				System.out.println("room clash with  faculty");
 				status.setText(ro.getTime());
 				break;
-			}
+	         }
+	
+				
 			
-		}
+	}
 		
 		if(flag==0 )
 		{

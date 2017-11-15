@@ -1,6 +1,8 @@
 package classes;
 
-public class Course {
+import java.io.Serializable;
+
+public class Course implements Serializable{
 	
 		String coption; // Mandatory / Elective
 		String cname;

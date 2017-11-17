@@ -1,11 +1,13 @@
 package classes;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Request implements Serializable {
 	
 	private String room;
-	String purpose;  // For the student to specify a purpose to RequestRoom.
+	private String purpose;  // For the student to specify a purpose to RequestRoom.
 	private int fh;
 	private int fm;
 	private int th;
@@ -15,6 +17,7 @@ public class Request implements Serializable {
 	int start;
 	int end;
 	private Student stu;
+	private Date dob;
 	
 	public Request(String a,int b,int c,int d,int e,String f, String g, Student s)
 	{
@@ -23,9 +26,15 @@ public class Request implements Serializable {
 		setFm(c);
 		setTh(d);
 		setTm(e);
-		purpose=f;
+		setPurpose(f);
 		setRoom(g);
 		setStudent(s);
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+	    setDob(new Date());  
+	 
+	    
+	    
 	}
 
 	public Student getStudent() {
@@ -82,6 +91,34 @@ public class Request implements Serializable {
 
 	public void setDate(String date) {
 		this.date = date;
+	}
+
+	/**
+	 * @return the purpose
+	 */
+	public String getPurpose() {
+		return purpose;
+	}
+
+	/**
+	 * @param purpose the purpose to set
+	 */
+	public void setPurpose(String purpose) {
+		this.purpose = purpose;
+	}
+
+	/**
+	 * @return the dob
+	 */
+	public Date getDob() {
+		return dob;
+	}
+
+	/**
+	 * @param dob the dob to set
+	 */
+	public void setDob(Date dob) {
+		this.dob = dob;
 	}
 	
 }

@@ -21,6 +21,8 @@ public class Student_controller {
 	Button logout;
 	@FXML
 	Button request;
+	@FXML
+	Button status;
 	
 	public void view_click(ActionEvent event) throws Exception
 	{
@@ -74,6 +76,18 @@ public class Student_controller {
 	{
 		Stage primaryStage=(Stage) request.getScene().getWindow()  ;
 		Pane root= FXMLLoader.load(getClass().getResource("RequestRoom.fxml"));
+		Scene scene = new Scene(root,600,400);
+		//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		//pane.getChildren().setAll(root);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		System.out.println("hello");
+	}
+	
+	public void status_click(ActionEvent event) throws Exception
+	{
+		Stage primaryStage=(Stage) request.getScene().getWindow()  ;
+		Pane root= FXMLLoader.load(getClass().getResource("Student_request.fxml"));
 		Scene scene = new Scene(root,600,400);
 		//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		//pane.getChildren().setAll(root);

@@ -3,10 +3,11 @@ package classes;
 import java.io.Serializable;
 
 public class User implements Serializable {
-	private String username;
-	private String email;
-	private String password;
-	private String usertype;
+	protected String username;
+	protected String email;
+	protected String password;
+	protected String usertype;
+	
 	
 	public User(String name, String email, String password, String user)
 	{

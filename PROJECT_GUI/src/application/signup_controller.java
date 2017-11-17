@@ -89,8 +89,10 @@ public class signup_controller
 		 * 2.User object
 		 * 3. Serializing
 		 */
-		
-		
+		String Username=username.getText();
+		String Email=email.getText();
+		String Password=password.getText();
+		String[] sp=Email.split("@");
 		try
 		{
 
@@ -101,23 +103,32 @@ public class signup_controller
 		{
 			usermap=new HashMap<String,User>();
 		}
-		finally
+			
+		if(Username.equals("") || Email.equals("") || Password.equals(""))
 		{
+			System.out.println("Input missing");
+		}
+		else if(sp[0].equals(Email) || !sp[1].equals("iiitd.ac.in"))
+		{
+			System.out.println("Input Valid id");
+		}
+		else
+		{
+			if(combo.getValue().toString().equals("Student"))	
+			{	
+				s=new Student(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
+				usermap.put(email.getText(), s);
+			}
+			else if(combo.getValue().toString().equals("Faculty"))	
+			{	
+				f=new Faculty(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
+				usermap.put(email.getText(), f);
+			}
+			else {
+				a=new Admin(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
+				usermap.put(email.getText(), a);
+			}
 		
-		if(combo.getValue().toString().equals("Student"))	
-		{	
-			s=new Student(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
-			usermap.put(email.getText(), s);
-		}
-		else if(combo.getValue().toString().equals("Faculty"))	
-		{	
-			f=new Faculty(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
-			usermap.put(email.getText(), f);
-		}
-		else {
-			a=new Admin(username.getText(), email.getText(), password.getText(), combo.getValue().toString());
-			usermap.put(email.getText(), a);
-		}
 		//Validate Email
 		
 		System.out.println(email.getText());
@@ -125,7 +136,7 @@ public class signup_controller
 		//usermap.put(email.getText(), u);
 	
 		System.out.println(usermap.size());
-		}
+		
 
 		ObjectOutputStream UsersList=null;	
 		
@@ -149,7 +160,7 @@ public class signup_controller
 		//System.out.println("hello");
 		
 		
-		
+		}	
 		
 		
 	}

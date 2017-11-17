@@ -35,6 +35,7 @@ public class Login_controller {
 	
 	
 	HashMap<String,User> usermap=new HashMap<String,User>();
+	
 	public static User u;
 	/* 1. Taking inputs form the user.
 	 * 2.Deserialize file
@@ -86,8 +87,24 @@ public class Login_controller {
 	    
 	   usermap=deserialize_user();
 	    
+	   if(usermap.containsKey(Email))
+	   {
+		   if(usermap.get(Email).getPassword().equals(Password))
+		   {
+			   u=usermap.get(Email);
+		   }
+		   else
+		   {
+			   //throws error
+		   }
+	   }
+	   else
+	   {
+		   //throws error
+	   }
+	   
 	    
-	    u=usermap.get(Email);
+	
 	    System.out.println(u.getUsertype());
 	    if(u.getUsertype().equals("Faculty"))
 	    {
@@ -101,7 +118,7 @@ public class Login_controller {
 	    }
 	    else if(u.getUsertype().equals("Student"))
 	    {
-	    	
+	       
 	    	Stage primaryStage=(Stage) submit.getScene().getWindow()  ;
 			Pane root= FXMLLoader.load(getClass().getResource("User_Student.fxml"));
 			Scene scene = new Scene(root,600,400);

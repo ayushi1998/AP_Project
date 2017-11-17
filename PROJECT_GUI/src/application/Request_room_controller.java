@@ -20,7 +20,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+import javafx.scene.control.TextField;
 public class Request_room_controller {
 	@FXML 
 	DatePicker date;
@@ -60,6 +60,8 @@ public class Request_room_controller {
 			System.out.println("hi");
 			s=(Student) lc.getUser();
 		}
+		
+		//s.disp();
 		/* 
 		v=lc.getUser();
 		String name=v.getUsername();
@@ -101,8 +103,6 @@ public class Request_room_controller {
 		int th=Integer.parseInt(t_h.getText());
 		int tm=Integer.parseInt(t_m.getText());
 		String p=purpose.getText();
-		
-		
 		
 		try
 		{

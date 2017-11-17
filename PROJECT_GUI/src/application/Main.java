@@ -3,7 +3,11 @@ package application;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
+import java.text.SimpleDateFormat;
+import java.time.Period;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 import classes.Room;
@@ -41,23 +45,7 @@ public class Main  extends Application implements Serializable  {
 	static HashMap<String,ArrayList<Room>> hm2=new HashMap<String,ArrayList<Room>>();
 	
 	public static void main(String[] args) throws Exception{
-		
-		 ObjectOutputStream UsersList=null;	
-		 Room r=new Room("C01",12,00,14,00,55," ");
-		 ArrayList<Room> ar=new ArrayList<Room>();
-		 ar.add(r);
-		 hm2.put("MONDAY", ar);
-			
-			try	
-			{	
-				UsersList=new ObjectOutputStream(new FileOutputStream("WeekdayRooms.txt"));	
-				UsersList.writeObject(hm2);			
-			}	
-			finally	
-			{	
-				UsersList.close();	
-			}	
-			
+
 		launch(args);
 	}
 }

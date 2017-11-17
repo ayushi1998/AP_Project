@@ -17,18 +17,20 @@
             <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <TableView fixedCellSize="0.0" layoutX="27.0" layoutY="83.0" prefHeight="255.0" prefWidth="548.0">
+      <TableView fx:id="table" fixedCellSize="0.0" layoutX="33.0" layoutY="83.0" prefHeight="255.0" prefWidth="552.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="COURSE" />
-          <TableColumn prefWidth="38.0" text="MON" />
-            <TableColumn prefWidth="40.0" text="TUE" />
-            <TableColumn prefWidth="51.0" text="WED" />
-            <TableColumn prefWidth="50.0" text="THUR" />
-            <TableColumn prefWidth="42.0" text="FRI" />
+          <TableColumn fx:id="course" prefWidth="166.0" text="COURSE" />
+          <TableColumn fx:id="mon" prefWidth="122.0" text="MON" />
+            <TableColumn fx:id="tue" prefWidth="130.0" text="TUE" />
+            <TableColumn fx:id="wed" prefWidth="119.0" text="WED" />
+            <TableColumn fx:id="thur" prefWidth="120.0" text="THUR" />
+            <TableColumn fx:id="fri" prefWidth="111.0" text="FRI" />
+            <TableColumn fx:id="tut" prefWidth="438.0" text="Tut_Slot" />
+            <TableColumn fx:id="lab" prefWidth="333.0" text="Lab_Slot" />
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#183136" height="408.0" layoutX="-4.0" layoutY="-7.0" stroke="#0a4d4c" strokeType="INSIDE" width="21.0" />
-      <Button fx:id="back" layoutX="508.0" layoutY="359.0" mnemonicParsing="false" onAction="#back_click" text="Back" />
+      <Button fx:id="back" layoutX="491.0" layoutY="359.0" mnemonicParsing="false" onAction="#back_click" prefHeight="25.0" prefWidth="57.0" text="Back" />
       <Circle fill="#356f83" layoutX="214.0" layoutY="35.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#356f83" layoutX="373.0" layoutY="35.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
       <Circle fill="#356f83" layoutX="7.0" layoutY="28.0" radius="4.0" stroke="BLACK" strokeType="INSIDE" />

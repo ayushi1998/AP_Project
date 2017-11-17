@@ -119,7 +119,8 @@ public class Book_class_controller {
 		{
 			
 		 hm=deserializefile("WeekdayRooms.txt"); //opens file with class booking of courses
-		 System.out.println(hm.get("MONDAY").get(0).getTime()+"The stored time of the class in file");
+		 System.out.println(hm.get("MONDAY"));
+		 //System.out.println(hm.get("MONDAY").get(0).getTime()+"The stored time of the class in file");
 		}
 		catch (NullPointerException e)
 		{

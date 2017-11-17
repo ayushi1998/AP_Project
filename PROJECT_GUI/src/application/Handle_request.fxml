@@ -9,14 +9,14 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Handle_requestcontroller">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3dbdd" height="408.0" layoutX="-10.0" layoutY="-4.0" stroke="BLACK" strokeType="INSIDE" width="620.0" />
-      <TableView layoutX="29.0" layoutY="77.0" prefHeight="172.0" prefWidth="534.0">
+      <TableView fx:id="table" layoutX="24.0" layoutY="77.0" prefHeight="172.0" prefWidth="552.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="SNo" />
-          <TableColumn prefWidth="64.0" text="Date" />
-            <TableColumn prefWidth="83.0" text="Time" />
-            <TableColumn prefWidth="128.0" text="Reason for Request" />
-            <TableColumn prefWidth="119.0" text="PreferredRoom" />
-            <TableColumn prefWidth="64.0" text="Status" />
+          <TableColumn fx:id="Sno" prefWidth="75.0" text="SNo" />
+          <TableColumn fx:id="date" prefWidth="116.0" text="Date" />
+            <TableColumn fx:id="time" prefWidth="109.0" text="Time" />
+            <TableColumn fx:id="purpose" prefWidth="205.0" text="Reason for Request" />
+            <TableColumn fx:id="room" prefWidth="101.0" text="PreferredRoom" />
+            <TableColumn fx:id="status" prefWidth="74.0" text="Status" />
         </columns>
       </TableView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#134451" height="408.0" layoutX="-14.0" layoutY="-4.0" stroke="#0a4d4c" strokeType="INSIDE" width="22.0" />

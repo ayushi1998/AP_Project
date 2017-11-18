@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Add_courses_controller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#388390" height="408.0" layoutX="-4.0" layoutY="-7.0" stroke="#0a4d4c" strokeType="INSIDE" width="609.0" />
+      <Label layoutX="102.0" layoutY="63.0" prefHeight="17.0" prefWidth="122.0" text="Fetch Courses" textFill="#fffdfd" />
+      <Label contentDisplay="CENTER" layoutX="224.0" layoutY="-3.0" prefHeight="25.0" prefWidth="172.0" text="Add Courses">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="85.0" layoutY="164.0" prefHeight="171.0" prefWidth="410.0">
+        <columns>
+          <TableColumn fx:id="Sno" prefWidth="75.0" text="SNo" />
+          <TableColumn fx:id="course" prefWidth="75.0" text="Course" />
+            <TableColumn fx:id="credits" prefWidth="75.0" text="Credits" />
+            <TableColumn fx:id="pc" prefWidth="181.0" text="Post-Condition" />
+        </columns>
+      </TableView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f505b" height="408.0" layoutX="-4.0" layoutY="-4.0" stroke="#0a4d4c" strokeType="INSIDE" width="21.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1d4c57" height="408.0" layoutX="583.0" layoutY="-8.0" stroke="#0a4d4c" strokeType="INSIDE" width="21.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1d4c57" height="3.0" layoutX="204.0" layoutY="34.0" stroke="#0a4d4c" strokeType="INSIDE" width="172.0" />
+      <Ellipse fill="#768594" layoutX="86.0" layoutY="72.0" radiusX="7.0" radiusY="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fill="#768594" layoutX="86.0" layoutY="146.0" radiusX="7.0" radiusY="7.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a1d22" height="14.0" layoutY="389.0" stroke="#0a4d4c" strokeType="INSIDE" width="600.0" />
+      <Button fx:id="back" layoutX="503.0" layoutY="346.0" mnemonicParsing="false" onAction="#back_click" prefHeight="25.0" prefWidth="65.0" text="Back" />
+      <Button fx:id="register" layoutX="322.0" layoutY="346.0" mnemonicParsing="false" onAction="#register_click" prefHeight="25.0" prefWidth="65.0" text="Register" />
+      <Button fx:id="search" layoutX="499.0" layoutY="90.0" mnemonicParsing="false" onAction="#search_click" prefHeight="25.0" prefWidth="73.0" text="Search " />
+      <TextField fx:id="sno" layoutX="224.0" layoutY="346.0" prefHeight="25.0" prefWidth="73.0" />
+      <Label layoutX="102.0" layoutY="90.0" prefHeight="25.0" prefWidth="172.0" text="Enter any Post-Condition" textFill="#fafeff" />
+      <TextField fx:id="searchbar" layoutX="322.0" layoutY="90.0" />
+      <Label layoutX="103.0" layoutY="138.0" prefHeight="17.0" prefWidth="202.0" text="Shortlisted Courses">
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" proportional="false" startX="0.8904761904761904" startY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="128.0" layoutY="350.0" prefHeight="17.0" prefWidth="65.0" text="Enter Sno" textFill="#f8f3f3" />
+   </children>
+</Pane>
